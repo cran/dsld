@@ -239,48 +239,74 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<div id="categorized-function-list" class="section level1">
-<h1>Categorized Function List</h1>
-<p></br> </br> </br></p>
-<p><em>Tabular confounder exploration</em></p>
-<ul>
-<li><p>dsldCHunting</p></li>
-<li><p>dsldDiffSLin</p></li>
-<li><p>dsldDiffSLog</p></li>
-<li><p>dsldTakeALookAround</p></li>
-</ul>
-<p><em>Graphical confounder exploration</em></p>
-<ul>
-<li><p>dsldConditDisparity</p></li>
-<li><p>dsldConfounders</p></li>
-<li><p>dsldDensityByS</p></li>
-<li><p>dsldScatterPlot3D</p></li>
-</ul>
-<p><em>Statistical analysisfor group differences</em></p>
-<ul>
-<li><p>dsldLinear</p></li>
-<li><p>dsldLogit</p></li>
-<li><p>dsldML</p></li>
-</ul>
-<p><em>Causal analysis</em></p>
-<ul>
-<li><p>dsldIamb</p></li>
-<li><p>dsldMatchedATE</p></li>
-</ul>
-<p><em>Fairness in prediction</em></p>
-<ul>
-<li><p>dsldFgrrm</p></li>
-<li><p>dsldFrrm</p></li>
-<li><p>dsldNclm</p></li>
-<li><p>dsldOHunting</p></li>
-<li><p>dsldQeFairRF</p></li>
-<li><p>dsldQeFairRidgeLin</p></li>
-<li><p>dsldQeFairRidgeLog</p></li>
-<li><p>dsldZlrm</p></li>
-<li><p>dsldZlm</p></li>
-<li><p>dsldTakeALookAround</p></li>
-</ul>
-</div>
+<p>DSLD supports two related tasks: estimating differences between
+sensitive groups and limiting sensitive-attribute influence in
+predictive models.</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Adjusted group comparisons</td>
+<td><code>dsldLinear</code>, <code>dsldLogit</code>,
+<code>dsldML</code></td>
+</tr>
+<tr class="even">
+<td>Confounder and proxy exploration</td>
+<td><code>dsldCHunting</code>, <code>dsldOHunting</code>,
+<code>dsldTakeALookAround</code></td>
+</tr>
+<tr class="odd">
+<td>Group frequency and density summaries</td>
+<td><code>dsldFrequencyByS</code>, <code>dsldDensityByS</code>,
+<code>dsldConfounders</code></td>
+</tr>
+<tr class="even">
+<td>Multivariate graphics</td>
+<td><code>dsldFreqPCoord</code>, <code>dsldScatterPlot3D</code>,
+<code>dsldConditDisparity</code></td>
+</tr>
+<tr class="odd">
+<td>Matching and structure discovery</td>
+<td><code>dsldMatchedATE</code>, <code>dsldIamb</code></td>
+</tr>
+<tr class="even">
+<td>fairml models</td>
+<td><code>dsldFrrm</code>, <code>dsldFgrrm</code>,
+<code>dsldNclm</code>, <code>dsldZlm</code>, <code>dsldZlrm</code></td>
+</tr>
+<tr class="odd">
+<td>Explicitly deweighted features</td>
+<td><code>dsldQeFairKNN</code>, <code>dsldQeFairRF</code>,
+<code>dsldQeFairRidgeLin</code>, <code>dsldQeFairRidgeLog</code></td>
+</tr>
+<tr class="even">
+<td>Cross-validated parameter comparison</td>
+<td><code>dsldFairUtils</code></td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>summary()</code> for the linear/logistic group comparisons
+and <code>predict()</code> for new data. Each function’s help page
+describes its arguments and return values.</p>
+<p>The fair-ML fields <code>trainAcc</code> and <code>testAcc</code> are
+prediction errors, despite their historical names: mean absolute error
+for regression and misclassification rate for binary classification.
+Smaller errors indicate better prediction. Signed correlations describe
+association with each sensitive attribute or factor level; they are not
+a universal fairness guarantee.</p>
+<p>The optional packages <code>Matching</code>, <code>bnlearn</code>,
+<code>randomForest</code>, <code>cccp</code>, and <code>CVXR</code> are
+required only by their corresponding methods. Consult each function’s
+help page for its inputs, return values, and examples.</p>
 
 
 
